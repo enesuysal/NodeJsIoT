@@ -2,7 +2,7 @@
 //Import the package for Storage
 var azure = require('azure-storage');
 var unzip = require('unzip');
-var blobSvc = azure.createBlobServiceAnonymous('https://testenesq.blob.core.windows.net/');
+var blobSvc = azure.createBlobServiceAnonymous('https://devdaysiot.blob.core.windows.net/');
 //Iot 
 var Mqtt = require('azure-iot-device-mqtt').Mqtt;
 var DeviceClient = require('azure-iot-device').Client;
@@ -19,7 +19,7 @@ function onWriteLine(request, response) {
         } else {
             console.log('Response to method \'' + request.methodName + '\' sent successfully.' );
             var fs = require('fs');
-            blobSvc.getBlobToStream('simulated', request.payload.fileName, fs.createWriteStream(request.payload.fileName), function(error, result, response){
+            blobSvc.getBlobToStream('deploys', request.payload.fileName, fs.createWriteStream(request.payload.fileName), function(error, result, response){
               if(!error){
                 console.log('Blob file Downloaded');
                 fs.createReadStream(request.payload.fileName).pipe(unzip.Extract({ path: '../SimulatedDevice' }));
