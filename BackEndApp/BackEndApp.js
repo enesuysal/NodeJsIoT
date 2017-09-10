@@ -7,7 +7,7 @@ var blobSvc = azure.createBlobServiceAnonymous('https://testenesq.blob.core.wind
 var Mqtt = require('azure-iot-device-mqtt').Mqtt;
 var DeviceClient = require('azure-iot-device').Client;
 
-var connectionString = 'HostName=enesprod.azure-devices.net;DeviceId=node;SharedAccessKey=VZeBMvCVC9KKFoAfrNQ1vvBJ/jt/mc4s5mvntnBBv+c=';
+var connectionString = 'HostName=IotDevDays.azure-devices.net;DeviceId=device1;SharedAccessKey=CJRrB0op+UTIWSzjLBWmyX+SyxJWA+JGpbNpUFEbrdI=';
 var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
 
 function onWriteLine(request, response) {
